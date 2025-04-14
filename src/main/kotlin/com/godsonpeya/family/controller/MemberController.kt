@@ -15,13 +15,13 @@ class MemberController(private val memberService: MemberService) {
     fun getMembers(): List<MemberRs> = memberService.getAllMembers()
 
     @GetMapping("/{id}")
-    fun getMember(id: String): MemberRs? = memberService.getMemberById(id)
+    fun getMember(@PathVariable id: UUID): MemberRs? = memberService.getMemberById(id)
 
     @PostMapping
     fun createMember(@RequestBody memberRq: MemberRq): MemberRs = memberService.saveMember(memberRq)
 
     @PutMapping("/{id}")
-    fun updateMember(@PathVariable id: String, @RequestBody memberRq: MemberRq): MemberRs =
+    fun updateMember(@PathVariable id: UUID, @RequestBody memberRq: MemberRq): MemberRs =
         memberService.updateMember(id, memberRq)
 
     @DeleteMapping("/{id}")
