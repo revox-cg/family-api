@@ -29,7 +29,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_DATABASE_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DATABASE_NAME}
     ports:
-      - "95432:5432"
+      - "9432:5432"
     networks:
       - family-network
     volumes:
