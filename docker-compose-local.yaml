@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=family_db'
+      - 'POSTGRES_PASSWORD=password'
+      - 'POSTGRES_USER=family'
+    ports:
+      - '7432:5432'

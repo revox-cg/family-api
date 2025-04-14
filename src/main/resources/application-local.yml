@@ -1,0 +1,4 @@
+spring:
+  docker:
+    compose:
+      file: @project.basedir@/docker-compose-local.yaml
