@@ -15,16 +15,16 @@ class MemberServiceImpl(private val memberRepository: MemberRepository) : Member
         return memberRepository.findAll().map { it.toMemberRs() }
     }
 
-    override fun getMemberById(id: UUID): MemberRs? {
-        return getMember(id).toMemberRs()
+    override fun getMemberById(id: String): MemberRs? {
+        return getMember(UUID.fromString(id)).toMemberRs()
     }
 
     override fun saveMember(memberRq: MemberRq): MemberRs {
         return memberRepository.save(memberRq.toMember()).toMemberRs()
     }
 
-    override fun updateMember(id: UUID, memberRq: MemberRq): MemberRs {
-        val member = getMember(id)
+    override fun updateMember(id: String, memberRq: MemberRq): MemberRs {
+        val member = getMember(UUID.fromString(id))
         member.apply {
             firstName = memberRq.firstName
             lastName = memberRq.lastName

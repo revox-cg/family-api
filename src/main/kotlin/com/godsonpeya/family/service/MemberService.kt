@@ -8,8 +8,8 @@ import java.util.UUID
 interface MemberService {
 
     fun getAllMembers(): List<MemberRs>
-    fun getMemberById(id: UUID): MemberRs?
+    fun getMemberById(id: String): MemberRs?
     fun saveMember(memberRq: MemberRq): MemberRs
-    fun updateMember(id: UUID, memberRq: MemberRq): MemberRs
+    fun updateMember(id: String, memberRq: MemberRq): MemberRs
     fun deleteMember(id: UUID): String
 }
