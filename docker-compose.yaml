@@ -6,9 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://family_db:5432/${POSTGRES_DATABASE_NAME}
-      - SPRING_DATASOURCE_USERNAME=${POSTGRES_DATABASE_USER}
-      - SPRING_DATASOURCE_PASSWORD=${POSTGRES_DATABASE_PASSWORD}
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://family_db:5432/${NOM_DATABASE_USER}
+      - SPRING_DATASOURCE_USERNAME=${NAME_DATABASE}
+      - SPRING_DATASOURCE_PASSWORD=${PASSWORD_DATABASE}
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     env_file:
       - .env
@@ -25,9 +25,9 @@ services:
     image: postgres:17.4
     restart: unless-stopped
     environment:
-      - POSTGRES_USER=${POSTGRES_DATABASE_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_DATABASE_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DATABASE_NAME}
+      - POSTGRES_USER=${NOM_DATABASE_USER}
+      - POSTGRES_PASSWORD=${PASSWORD_DATABASE}
+      - POSTGRES_DB=${NAME_DATABASE}
     ports:
       - "9432:5432"
     networks:
