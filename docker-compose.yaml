@@ -15,7 +15,7 @@ services:
     networks:
       - family-network
     ports:
-      - "7780:8080"
+      - "7780:7777"
     depends_on:
       - family_db
 
